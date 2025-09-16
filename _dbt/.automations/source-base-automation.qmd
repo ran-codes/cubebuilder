@@ -1,9 +1,6 @@
 ---
-title: "salurbal_etl_dbt__v_1_2__base_automation"
-subtitle: "This notebook takes loaded source data and metadata parquet files (schema v2+) and initializes then as source, base and core administrative models within DBT."
-author: 
-  - name: Ran Li (Maintainer)
-  - name: Usama Bilal (Context Partner)
+title: "DBT Source and Base Model Automation"
+subtitle: "This notebook takes loaded source data and metadata parquet files and initializes then as source, base and core administrative models within DBT."
 date: last-modified
 format: 
   html:
@@ -11,9 +8,7 @@ format:
     self-contained: true
     code-fold: false
     df-print: kable
-    code-tools: true
-    code-block-border-left: '#39b69d'
-    code-block-bg: '#ebf0ef'
+    code-tools: true 
 comments:
   hypothesis: 
     theme: clean
@@ -30,8 +25,8 @@ editor_options:
 #| code-fold: true
 
 
-setwd(here::here('code/dbt/.automations'))
-pacman::p_load(tidyverse,yaml, arrow, assertr, reactable, glue, cli)
+setwd(here::here('_dbt/.automations'))
+pacman::p_load(tidyverse,yaml, arrow, assertr, reactable, glue, cli, here)
 R_files <- list.files(path = 'R', all.files = TRUE,
                       recursive = TRUE, full.names = TRUE,
                       pattern = '\\.R$') %>%
@@ -46,7 +41,7 @@ for (file in R_files) {
     
 local_context = lst(
   df_inventory_schema_v2 = list.files(
-    '//files.drexel.edu/colleges/SOPH/Shared/UHC/Projects/Wellcome_Trust/Data Methods Core/Dashboards/dbt/salurbal-dbt-server/sources', 
+    here("_shared_storage/4_standardized/"), 
     pattern = '_loading.parquet',
     full.names = T
   ) %>% 
@@ -78,7 +73,7 @@ local_context = lst(
 
 ## Schema v2 datasets
 
-We have our basic global setup and then we operationlized an inveotry of production (schema v2+) cube assets that were staged as sources. Let preview that first
+We have our basic global setup and then we operationlized an inveotry of production cube assets that were staged as sources. Let preview that first
 
 ```{r}
 
@@ -139,7 +134,11 @@ We start with just setting up the end path.
 
 ```{r}
 model_id = row$source_model_id
-src_endpoint = glue("../models/sources/{model_id}.yml")
+
+
+src_endpoint = file.path(
+  here('_shared_storage/5_datawarehouse/models/sources'),
+  glue('{model_id}.yml'))
 cli_alert("Start source.yml generation for - {model_id}")
 ```
 
