@@ -51,25 +51,25 @@ get_global_context = function(root = here()){
         ),
         
         ## Seeds (DMC Specific/Restricted)
-        path_server_dmc = '//files.drexel.edu/colleges/SOPH/Shared/UHC/Projects/Wellcome_Trust/Data Methods Core/',
-        path_dmc_seeds = file.path(path_server_dmc,'Dashboards/seeds'),
-        path_server_etl_seeds_xwalks = file.path(path_dmc_seeds, '_crosswalks'),
-        path_server_etl_seeds_crosswalks =  file.path(path_dmc_seeds,"_crosswalks/"),
-        path_server_etl_seeds_spatial = file.path(path_dmc_seeds,"_spatial/"),
-        arcgispro_path = file.path(path_server_dmc,'ArcGISPro/SALURBAL_L1UX/'),
-        salurbal_gdb_path = file.path(path_server_dmc,'Geodatabases/SALURBAL/'),
-        adm1_path = file.path(path_server_etl_seeds_spatial,'adm1_boundaries.parquet'),
-        adm1_5pct_path = file.path(path_server_etl_seeds_spatial,'adm1_boundaries_5pct.parquet'),
-        l1ad_path = file.path(path_server_etl_seeds_spatial,'l1ad_boundaries.parquet'),
-        l1ad_5pct_path = file.path(path_server_etl_seeds_spatial,'l1ad_boundaries_5pct.parquet'),
-        l1ad_centroids_path = file.path(path_server_etl_seeds_spatial,'l1ad_centroids.parquet'),
-        l1ad_centroids_df_path = file.path(path_server_etl_seeds_spatial,'l1ad_centroids_dataframe.parquet'),
-        l1ux_path = file.path(path_server_etl_seeds_spatial,'l1ux_boundaries.parquet'),
-        l1ux_5pct_path = file.path(path_server_etl_seeds_spatial,'l1ux_boundaries_5pct.parquet'),
-        l2_path = file.path(path_server_etl_seeds_spatial,'l2_boundaries.parquet'),
-        l2_5pct_path = file.path(path_server_etl_seeds_spatial,'l2_boundaries_5pct.parquet'),
-        l3_path = file.path(path_server_etl_seeds_spatial,'l3_boundaries.parquet'),
-        l3_5pct_path = file.path(path_server_etl_seeds_spatial,'l3_boundaries_5pct.parquet')
+        # path_server_dmc = '//files.drexel.edu/colleges/SOPH/Shared/UHC/Projects/Wellcome_Trust/Data Methods Core/',
+        # path_dmc_seeds = file.path(path_server_dmc,'Dashboards/seeds'),
+        # path_server_etl_seeds_xwalks = file.path(path_dmc_seeds, '_crosswalks'),
+        # path_server_etl_seeds_crosswalks =  file.path(path_dmc_seeds,"_crosswalks/"),
+        # path_server_etl_seeds_spatial = file.path(path_dmc_seeds,"_spatial/"),
+        # arcgispro_path = file.path(path_server_dmc,'ArcGISPro/SALURBAL_L1UX/'),
+        # salurbal_gdb_path = file.path(path_server_dmc,'Geodatabases/SALURBAL/'),
+        # adm1_path = file.path(path_server_etl_seeds_spatial,'adm1_boundaries.parquet'),
+        # adm1_5pct_path = file.path(path_server_etl_seeds_spatial,'adm1_boundaries_5pct.parquet'),
+        # l1ad_path = file.path(path_server_etl_seeds_spatial,'l1ad_boundaries.parquet'),
+        # l1ad_5pct_path = file.path(path_server_etl_seeds_spatial,'l1ad_boundaries_5pct.parquet'),
+        # l1ad_centroids_path = file.path(path_server_etl_seeds_spatial,'l1ad_centroids.parquet'),
+        # l1ad_centroids_df_path = file.path(path_server_etl_seeds_spatial,'l1ad_centroids_dataframe.parquet'),
+        # l1ux_path = file.path(path_server_etl_seeds_spatial,'l1ux_boundaries.parquet'),
+        # l1ux_5pct_path = file.path(path_server_etl_seeds_spatial,'l1ux_boundaries_5pct.parquet'),
+        # l2_path = file.path(path_server_etl_seeds_spatial,'l2_boundaries.parquet'),
+        # l2_5pct_path = file.path(path_server_etl_seeds_spatial,'l2_boundaries_5pct.parquet'),
+        # l3_path = file.path(path_server_etl_seeds_spatial,'l3_boundaries.parquet'),
+        # l3_5pct_path = file.path(path_server_etl_seeds_spatial,'l3_boundaries_5pct.parquet')
       )
       
       { ## QC: Validate all server paths
@@ -173,19 +173,19 @@ get_global_context = function(root = here()){
     
     { # Crosswalks --------------------------------------------------------------
       crosswalks = lst(
-        path_xwalk_iso2 = file.path(paths$path_server_etl_seeds_crosswalks, 'xwalk_iso2.parquet'),
-        xwalk_iso2 = read_parquet(path_xwalk_iso2),
-        path_xwalk_l1ad = file.path(paths$path_server_etl_seeds_crosswalks, 'xwalk_l1ad.parquet'),
-        xwalk_l1ad = read_parquet(path_xwalk_l1ad),
-        path_xwalk_l2 = file.path(paths$path_server_etl_seeds_crosswalks, 'xwalk_l2.parquet'),
-        xwalk_l2 = read_parquet(path_xwalk_l2),
-        path_xwalk_area_level_observation_id_label = file.path(paths$path_server_etl_seeds_crosswalks, 
-                                                               'xwalk_area_level_observation_id_label.parquet'),
-        xwalk_area_level_observation_id_labels = read_parquet(path_xwalk_area_level_observation_id_label),
-        xwalk_keys = generate_relative_path(root,"_shared_storage/0_schema/templates/4-codebook_keys.csv") %>% 
-          read_csv(show_col_types = FALSE) %>% 
+        # path_xwalk_iso2 = file.path(paths$path_server_etl_seeds_crosswalks, 'xwalk_iso2.parquet'),
+        # xwalk_iso2 = read_parquet(path_xwalk_iso2),
+        # path_xwalk_l1ad = file.path(paths$path_server_etl_seeds_crosswalks, 'xwalk_l1ad.parquet'),
+        # xwalk_l1ad = read_parquet(path_xwalk_l1ad),
+        # path_xwalk_l2 = file.path(paths$path_server_etl_seeds_crosswalks, 'xwalk_l2.parquet'),
+        # xwalk_l2 = read_parquet(path_xwalk_l2),
+        # path_xwalk_area_level_observation_id_label = file.path(paths$path_server_etl_seeds_crosswalks,
+        #                                                        'xwalk_area_level_observation_id_label.parquet'),
+        # xwalk_area_level_observation_id_labels = read_parquet(path_xwalk_area_level_observation_id_label),
+        xwalk_keys = generate_relative_path(root,"_shared_storage/0_schema/templates/4-codebook_keys.csv") %>%
+          read_csv(show_col_types = FALSE) %>%
           unpack_string_column(.,"keys")
-      )  
+      )
     }
     
     
@@ -217,49 +217,11 @@ get_global_context = function(root = here()){
   
   { # Production --------------------------------------------------------------
 
-    { # SALURBAL Cubes   ---------------------------------------------------------------------
-      
-      cube = lst(
-        
-        
-        ## Schema v1 D
-        path_cache_source_v1 = file.path(paths$path_server_dbt_sources, 'schema_v1_source'),
-        path_cache_salurbal_metadata_cube_v1 = file.path(path_cache_source_v1, '_salurbal_metadata_cube_v1.parquet'), 
-        cache_salurbal_metadata_cube_v1 = ifelse(file.exists(path_cache_salurbal_metadata_cube_v1),
-                                                 arrow::open_dataset(path_cache_salurbal_metadata_cube_v1),
-                                                 list(NULL)),
-        path_cache_salurbal_data_cube_v1 = file.path(path_cache_source_v1, '_salurbal_data_cube_v1.parquet'),
-        cache_salurbal_data_cube_v1 =  ifelse(file.exists(path_cache_salurbal_data_cube_v1),
-                                              arrow::open_dataset(path_cache_salurbal_data_cube_v1),
-                                              list(NULL)),
-        ## Schema v2
-        path_cache_source_v2 = file.path(paths$path_server_dbt_sources, 'schema_v2_source'),
-        path_cache_salurbal_metadata_cube_v2 = file.path(path_cache_source_v2, '_salurbal_metadata_cube_v2.parquet'),
-        cache_salurbal_metadata_cube_v2 = ifelse(file.exists(path_cache_salurbal_metadata_cube_v2),
-                                                 arrow::open_dataset(path_cache_salurbal_metadata_cube_v2),
-                                                 list(NULL)),
-        path_cache_salurbal_data_cube_v2 = file.path(path_cache_source_v2, '_salurbal_data_cube_v2.parquet'),
-        cache_salurbal_data_cube_v2 =  ifelse(file.exists(path_cache_salurbal_data_cube_v2),
-                                              arrow::open_dataset(path_cache_salurbal_data_cube_v2),
-                                              list(NULL)),
-        
-        
-        ## Harmonized production
-        path_cache_salurbal_data_cube = file.path(paths$path_server_dbt_sources, '_salurbal_data_cube.parquet'),
-        cache_salurbal_data_cube = ifelse(file.exists(path_cache_salurbal_data_cube),
-                                          arrow::open_dataset(path_cache_salurbal_data_cube),
-                                          list(NULL)),
-        path_cache_salurbal_metadata_cube = file.path(paths$path_server_dbt_sources, '_salurbal_metadata_cube.parquet'),
-        cache_salurbal_metadata_cube = ifelse(file.exists(path_cache_salurbal_metadata_cube),
-                                              arrow::open_dataset(path_cache_salurbal_metadata_cube),
-                                              list(NULL))
-        
-      )
-    }
     
     
     
     
+  
     {
       # Inventory  ---------------------------------------------------------------------
       inventory = lst(
@@ -270,49 +232,7 @@ get_global_context = function(root = here()){
       )
     }
     
-    
-    {  # Censorship --------------------------------------------------------------
-      
-      # df_censorship = tibble(
-      #   censorship_file = list.files(
-      #     paths$repo_dmc_censorship,
-      #     pattern = '.csv') ,
-      #   censorship_date = censorship_file %>% 
-      #     str_remove(".csv") %>% 
-      #     str_split("_") %>% 
-      #     map(~.x %>% tail(n=1)) %>% 
-      #     unlist() %>% 
-      #     lubridate::as_date() ) %>%
-      #   filter(!str_detect(censorship_file,'_template')) %>%
-      #   filter(censorship_date == max(censorship_date))
-      
-      # df_censorship = file.path(paths$repo_dmc_censorship, df_censorship$censorship_file) %>%
-      #   read_csv(show_col_types = FALSE) %>% 
-      #   mutate(censorship_date = df_censorship$censorship_date) %>% 
-        # select(censorship_date, everything())
-      
-      # df_censorship %>%
-      #   mutate(across(where(is.character), ~gsub("\r", "", .))) %>% 
-      #   jsonlite::write_json(file.path(paths$repo_dmc_censorship, '.variable_censorship.json'),
-      #                        pretty = T)
-      # 
-      # vec__post_censorship_vars_to_keep = df_censorship %>%
-      #   filter(keep == 1) %>%
-      #   pull(var_name)
-      # 
-      # censorship = lst(
-      #   df_censorship = df_censorship,
-      #   vec__post_censorship_vars_to_keep,
-      #   new_censorship_template_csv_path = file.path(
-      #     paths$repo_dmc_censorship,
-      #     'variable_censorship_template_{format(Sys.Date(), "%Y%m%d")}.csv'),
-      #   new_censorship_template_json_path = file.path(
-      #     paths$repo_dmc_censorship,
-      #     'variable_censorship_template_{format(Sys.Date(), "%Y%m%d")}.json')
-      #   )
-        
 
-    }
     
     
   }

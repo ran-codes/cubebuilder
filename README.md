@@ -1,10 +1,18 @@
 # CubeBuilder-Dev: A Project-Agnostic Data Harmonization Framework
 
-[![Development Status](https://img.shields.io/badge/status-development-yellow.svg)](https://github.com/your-org/cubebuilder-dev)
-[![Framework](https://img.shields.io/badge/framework-R-blue.svg)](https://www.r-project.org/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 CubeBuilder-Dev is a development repository for building data harmonization and cube-building capabilities. This repository focuses on creating unified data structures that integrate both data and metadata into queryable cubes for efficient reporting and analysis.
+
+## 🚀 Quick Start: Training Modules
+
+1. Clone this repository
+2. Read the root README for context on what a cube is
+3. Read the `_training/README` for context on training
+4. Navigate into the individual training modules
+   - Read Module README for context on the goal of the training module
+   - Run code if already available (e.g. Module 1 and 2)
+   - Write code if an exercise (e.g. Module 3)
+   - Check against solutions see branches 
 
 ## 🎯 What is a Data/Metadata Cube?
 
@@ -30,6 +38,8 @@ The cube structure eliminates the complexity of managing relationships between d
 
 ## 📁 Repository Structure
 
+Note that for this training most of storage is on GitHub/local but this workflow is designed so that storage can be on shared drives, encrypted drives or the cloud. Its just changing the path in the configurations.
+
 ```
 cubebuilder-dev/
 ├── `_training/`                        # 🎓 Self-contained learning modules
@@ -49,62 +59,10 @@ cubebuilder-dev/
 └── README.md                          # 📖 This file
 ```
 
-## 🚀 Quick Start: Training Modules
-
-### Prerequisites
-- **R 4.0+** with packages: `tidyverse`, `arrow`, `here`
-- **RStudio** (recommended for .qmd notebook execution)
-- Access to shared storage (local or cloud)
-
-### Training Path
-
-#### 1️⃣ **Module 1: Simple Area-Level Data** (`_training/1_area_level_simple/`)
-**Learn**: Basic cube creation, variable standardization, metadata templates
-- **Dataset**: Dummy air pollution measurements (PM2.5, NO2, etc.)
-- **Complexity**: Single source, no stratification
-- **Output**: Area-aggregated environmental data cube
-
-#### 2️⃣ **Module 2: Simple Record-Level Data** (`_training/2_record_level_simple/`)
-**Learn**: Individual-level processing, observation IDs, record-to-cube transformation
-- **Dataset**: Dummy health survey responses
-- **Complexity**: Individual records, basic demographics
-- **Output**: Person-level health data cube
-
-### Run a Training Module
-```r
-# Open training notebook
-setwd("_training/1_area_level_simple/")
-# Execute _training__1_area_level_simple.qmd in RStudio
-```
-
-## 🏗️ Framework Architecture
-
-### Data Processing Pipeline
-
-```mermaid
-graph TD
-    A[Raw Data Sources] --> B[Data Standardization]
-    B --> C[Variable Declaration]
-    C --> D[Strata Definition]
-    D --> E[Data Cube Creation]
-    E --> F[Metadata Standardization]
-    F --> G[Integration Testing]
-    G --> H[Data Warehouse Loading]
-    
-    style A fill:#ffebee
-    style H fill:#e8f5e9
-```
-
-t
-
-**Development Team**: SALURBAL Data Methods Core, Drexel University
-**Primary Contact**: [Contact Information]
-**Issues**: Use GitHub Issues for bug reports and feature requests
-
-## 📄 License
-
-MIT License - See [LICENSE](LICENSE) for details
 
 ---
 
-*CubeBuilder-Dev represents the evolution of data harmonization from project-specific solutions to generalizable, reusable frameworks. Built on lessons learned from managing complex, multi-national urban health data at scale.*
+*Incoming*
+
+- *[Harmonized data sources jinja templating](https://salurbal-infrastructure.netlify.app/Data/templating/)*
+- *Edge cases*
