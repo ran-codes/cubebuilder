@@ -134,11 +134,7 @@ We start with just setting up the end path.
 
 ```{r}
 model_id = row$source_model_id
-
-
-src_endpoint = file.path(
-  here('_shared_storage/5_datawarehouse/models/sources'),
-  glue('{model_id}.yml'))
+src_endpoint = glue('../models/sources/{model_id}.yml')
 cli_alert("Start source.yml generation for - {model_id}")
 ```
 
@@ -238,7 +234,7 @@ We get some local variables named for templating and path generation.
   model_id = row$base_model_id
   path = row$path
   base_model_sql_name = glue("{model_id}.sql")
-  sql_endpoint = glue("../models/base/{base_model_sql_name}")
+  sql_endpoint =  glue("../models/base/{base_model_sql_name}")
   cli_alert("Start base__model.sql for {model_id}")
 }
 
@@ -411,11 +407,11 @@ FROM
 First lets generate the actual intermdiate model information
 
 ```{r}
-int__metadata_model_id = glue("cte__schema_v2_metadata_cube")
+int__metadata_model_id = glue("int__precensored_metadata_cube")
 sql_endpoint = glue("../models/core/0_precensor/{int__metadata_model_id}.sql")
 ```
 
-Now lest opertaionlize the information on the abse models we want to compile. Lets first operatinalize our input which is a list of base models for each cube type - here we filter for all metadata cubes.
+Now let's opertaionlize the information on the base models we want to compile. Lets first operatinalize our input which is a list of base models for each cube type - here we filter for all metadata cubes.
 
 ```{r}
 ## Filter
@@ -478,7 +474,7 @@ FROM
 "
 
 ## Prep
-int__data_model_id = glue("cte__schema_v2_data_cube")
+int__data_model_id = glue("int__precensored_data_cube")
 sql_endpoint = glue("../models/core/0_precensor/{int__data_model_id}.sql")
 vec__base_models_data = df_salurbal_source_input %>% 
   filter(type == 'data') %>% 
