@@ -19,3 +19,5 @@
 
 # VS code configurations
 .vscode/settings.json
+/_shared_storage/5_datawarehouse/models/dev
+*.duckdb
