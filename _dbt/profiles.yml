@@ -1,9 +1,9 @@
 salurbal:
   outputs:  
-    dev_ran:
+    dev:
       type: duckdb
-      path: \\files.drexel.edu\colleges\SOPH\Shared\UHC\Projects\Wellcome_Trust\Data Methods Core\Dashboards\dbt\salurbal-dbt-server\dev_ran.duckdb
-      external_root: \\files.drexel.edu\colleges\SOPH\Shared\UHC\Projects\Wellcome_Trust\Data Methods Core\Dashboards\dbt\salurbal-dbt-server\models\dev
+      path: '../_shared_storage/5_datawarehouse/models/dev.duckdb' 
+      external_root: '../_shared_storage/5_datawarehouse/models/dev'
       schema: external
       settings:
         threads: '1'
@@ -13,30 +13,4 @@ salurbal:
         - parquet
         - name: prql
           repo: community
-    dev_usama:
-      type: duckdb
-      path: \\files.drexel.edu\colleges\SOPH\Shared\UHC\Projects\Wellcome_Trust\Data Methods Core\Dashboards\dbt\salurbal-dbt-server\dev_usama.duckdb
-      external_root: \\files.drexel.edu\colleges\SOPH\Shared\UHC\Projects\Wellcome_Trust\Data Methods Core\Dashboards\dbt\salurbal-dbt-server\models\dev
-      schema: external
-      settings:
-        threads: '1'
-        memory_limit: '4GB'
-        temp_directory: '.\.tmp\'
-      extensions:
-        - parquet
-        - name: prql
-          repo: community
-    stage:
-      type: duckdb
-      path: \\files.drexel.edu\colleges\SOPH\Shared\UHC\Projects\Wellcome_Trust\Data Methods Core\Dashboards\dbt\salurbal-dbt-server\stage.duckdb
-      external_root: \\files.drexel.edu\colleges\SOPH\Shared\UHC\Projects\Wellcome_Trust\Data Methods Core\Dashboards\dbt\salurbal-dbt-server\models\stage
-      schema: external
-      settings:
-        threads: '1'
-        memory_limit: '12GB'
-        temp_directory: '.\.tmp\'
-      extensions:
-        - parquet
-        - name: prql
-          repo: community
-  target:  stage
+  target:  dev
