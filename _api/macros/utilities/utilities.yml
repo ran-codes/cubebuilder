@@ -1,0 +1,9 @@
+version: 2
+
+macros:
+  - name: limit_data_in_dev
+    description: A macro to randomly sample the specified number of rows from table when in dev
+    arguments:
+      - name: x
+        type: int
+        description: The number of rows to subset. The default value is 200.

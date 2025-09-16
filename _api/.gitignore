@@ -1,0 +1,15 @@
+## Python 
+.venv/
+
+## DBT
+target/
+dbt_packages/
+logs/
+
+## DuckDB
+*.parquet
+*.duckdb
+*.wal
+
+# Exception for specific summary files for Reporting
+!reports/sources/salurbal_metadata/*.parquet

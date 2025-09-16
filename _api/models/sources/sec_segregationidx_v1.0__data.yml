@@ -1,0 +1,12 @@
+version: 2
+sources:
+- name: SEC_SegregationIdx_v1.0
+  tags:
+  - DBT Source data
+  - SEC_SegregationIdx_v1.0
+  meta:
+    external_location: //files.drexel.edu/colleges/SOPH/Shared/UHC/Projects/Wellcome_Trust/Data
+      Methods Core//Dashboards/dbt/salurbal-dbt-server/sources/SEC_SegregationIdx_v1.0_schema-v2_data.parquet
+  tables:
+  - name: sec_segregationidx_v1.0__data
+    description: This is the data OBT for SEC_SegregationIdx_v1.0

@@ -1,0 +1,8 @@
+- source: salurbal-dbt-source-base-automation.qmd
+  quarto-pub:
+    - id: 6eb038b2-4819-4be5-b1f8-d933abd0a0e1
+      url: https://salurbal-climate.quarto.pub/salurbal-admin-dbt-initialization
+- source: salurbal-dbt-censorship.qmd
+  quarto-pub:
+    - id: 2f648c3d-5c68-4f79-b2c9-5430d85d847c
+      url: https://salurbal-climate.quarto.pub/salurbal-dbt-censorship-v2

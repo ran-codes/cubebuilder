@@ -1,0 +1,12 @@
+version: 2
+sources:
+- name: APM_DAILY_v1.0
+  tags:
+  - DBT Source data
+  - APM_DAILY_v1.0
+  meta:
+    external_location: //files.drexel.edu/colleges/SOPH/Shared/UHC/Projects/Wellcome_Trust/Data
+      Methods Core//Dashboards/dbt/salurbal-dbt-server/sources/APM_DAILY_v1.0_schema-v2_data.parquet
+  tables:
+  - name: apm_daily_v1.0__data
+    description: This is the data OBT for APM_DAILY_v1.0

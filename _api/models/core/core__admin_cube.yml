@@ -1,0 +1,118 @@
+version: 2
+
+models:
+  - name: core__admin_cube
+    description: >
+      This is the core data-model/API for DMC engineers from which we can fullfill almost all data needs. This is what we maintain and plan semantically versioned releases of.
+     
+      
+      Note that the final on_poartal status which has the following rules:
+
+        1. **Public Access and Censorship** (Rule 1):
+          - Must be public access and not censored
+          - Condition: `public == 1 & keep == 1`
+
+        2. **Geographic Limitation** (Rule 2):
+          - Public data is currently limited to L1AD
+          - Condition: `geo == 'L1AD'`
+
+        3. **Time Resolution Limitation** (Rule 3):
+          - Public data is currently limited to time resolution type of year
+          - Condition: `time_resolution_type == 'year'`
+
+        4. **Estimate Type Limitation** (Rule 4):
+          - Estimate type is only 'estimate'; so 
+          - Condition: `estimate_type == 'estimate'`
+
+        5. **Approved by DMC for release** (Rule 5):
+          - This is to prevent scooping and also conflicting research internally
+          - Condition: `dmc_keep_var == '1'`    
+          
+    config:
+      tags: ['admin_cube']
+    tests:
+      - test_unique_data_composite_keys_sample_1
+      - test_unique_data_composite_keys_sample_2
+      - test_unique_data_composite_keys_sample_3
+      - test_unique_data_composite_keys_sample_4
+    columns:
+      - name: dmc_keep_var
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['0', '1', '9']  
+              quote: false
+      - name: on_portal
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['0', '1', '2', '3', '9', '88_obs_type', '88_geo', '88_time_resolution', '88_estimate_type', '88_not_recent_year', '88_censor_dmc']  
+              quote: true
+      - name: public
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['0', '1', '2', '3', '9']  
+              quote: false
+
+      - name: strata_id
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_not_be_in_set:
+              value_set: ['NA','_NA_NA']
+      - name: strata_description
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_not_be_in_set:
+              value_set: ['NA','_NA_NA']
+      - name: var_def
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_not_be_in_set:
+              value_set: ['']
+      - name: var_name
+        tests:
+          - dbt_expectations.expect_column_values_to_not_match_regex_list:
+              regex_list: ['_UCI', '_LCI']
+              match_on: any
+  - name: core__metadata_cube
+    config:
+      tags: ['admin_cube']
+    tests:
+      - test_unique_metadata_composite_keys
+    columns:
+      - name: dmc_keep_var
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['0', '1', '9']  
+              quote: false
+      - name: public
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['0', '1', '2', '9', '3']  
+              quote: false
+      - name: public_original
+        tests:
+          - not_null
+      - name: strata_id
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_not_be_in_set:
+              value_set: ['NA','_NA_NA']
+      - name: strata_description
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_not_be_in_set:
+              value_set: ['NA','_NA_NA']
+      - name: var_def
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_not_be_in_set:
+              value_set: ['']
+      - name: var_name
+        tests:
+          - dbt_expectations.expect_column_values_to_not_match_regex_list:
+              regex_list: ['_UCI', '_LCI']
+              match_on: any

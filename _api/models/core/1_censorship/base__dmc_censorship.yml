@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: base__dmc_censorship
+    description: >
+      This is the censorship information from DMC. This is the final review of the data before it gets onto the portal. I think we need
+      figure out if this should be applied at the dataset level or at the project level as it is currently. Probably easier to 
+      manage at the dataset level as we can document context individualyl in issues or docs. 
+    columns:
+      - name: var_name
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: VARCHAR
+      - name: dmc_keep_var
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: VARCHAR

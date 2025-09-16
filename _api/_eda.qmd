@@ -1,0 +1,112 @@
+---
+title: "SALURBAL API Access"
+subtitle: "Bookmark this page to get quick connections to the various API's available."
+author: 
+  - name: Ran Li (Maintainer)
+    orcid: 0000-0002-4699-4755
+  - name: Jessica Uruchima
+date: last-modified
+format: 
+  html:
+    page-layout: full
+    toc: true
+    self-contained: true
+    code-fold: false
+    df-print: kable
+    code-tools: true 
+    toc-expand: 2
+comments:
+  hypothesis: 
+    theme: clean
+editor: source
+execute:  
+  warning: false
+  message: false
+  eval: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(tidyverse)
+library(arrow)
+```
+
+# Production Releases
+
+## v0.1.alpha
+
+### Core  
+
+
+```{r}
+api = '//files.drexel.edu/colleges/SOPH/Shared/UHC/Projects/Wellcome_Trust/Data Methods Core/Dashboards/dbt/salurbal-dbt-server/api/v0.1.alpha/core__admin_cube.parquet' |> 
+  arrow::open_dataset()
+
+api %>% 
+  filter(dataset_id == 'APM_DAILY') %>% 
+  distinct() %>% 
+  collect()
+```
+
+### Metadata  
+
+
+```{r}
+api = '//files.drexel.edu/colleges/SOPH/Shared/UHC/Projects/Wellcome_Trust/Data Methods Core/Dashboards/dbt/salurbal-dbt-server/api/v0.1.alpha/api__metadata_cube.parquet' |> 
+  arrow::open_dataset()
+
+api %>% 
+  filter(dataset_id == 'APM_DAILY') %>% 
+  collect()
+```
+
+----
+
+# DBT
+
+## Dev
+
+### Core
+
+```{r}
+api = '//files.drexel.edu/colleges/SOPH/Shared/UHC/Projects/Wellcome_Trust/Data Methods Core/Dashboards/dbt/salurbal-dbt-server/models/dev/core__admin_cube.parquet' |> 
+  arrow::open_dataset()
+
+api %>% 
+  count(dmc_keep_var, censor_dmc) %>% 
+  collect() 
+```
+
+
+## Staging
+
+### Core
+
+```{r}
+api = '//files.drexel.edu/colleges/SOPH/Shared/UHC/Projects/Wellcome_Trust/Data Methods Core/Dashboards/dbt/salurbal-dbt-server/models/stage/core__admin_cube.parquet' |> 
+  arrow::open_dataset()
+
+api %>% 
+  count(on_portal) %>% 
+  collect()
+```
+
+
+### Metadata  
+
+
+```{r}
+api = '//files.drexel.edu/colleges/SOPH/Shared/UHC/Projects/Wellcome_Trust/Data Methods Core/Dashboards/dbt/salurbal-dbt-server/models/stage/core__metadata_cube.parquet' |> 
+  arrow::open_dataset()
+
+api %>% 
+  count(dataset_instance) %>% 
+  collect() 
+```
+
+
+
+
+
+ 
