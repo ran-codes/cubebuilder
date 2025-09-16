@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: cte__schema_v1_data_cube
+    config:
+      tags: ['admin_data', 'schema_cte','precensor']
+    tests:
+      - test_unique_data_composite_keys
+  - name: cte__schema_v2_data_cube
+    config:
+      tags: ['admin_data', 'schema_cte','precensor']
+    tests:
+      - test_unique_data_composite_keys_sample_1
+      - test_unique_data_composite_keys_sample_2
+      - test_unique_data_composite_keys_sample_3
+      - test_unique_data_composite_keys_sample_4
+  - name: cte__schema_v1_metadata_cube
+    config:
+      tags: ['admin_metadata', 'schema_cte','precensor']
+    tests:
+      - test_unique_metadata_composite_keys
+  - name: cte__schema_v2_metadata_cube
+    config:
+      tags: ['admin_metadata', 'schema_cte','precensor']
+    tests:
+      - test_unique_metadata_composite_keys   

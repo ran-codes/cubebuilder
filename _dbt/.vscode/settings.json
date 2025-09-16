@@ -1,0 +1,25 @@
+{
+    "dbt.queryLimit": 500,
+    "files.associations": {
+        "*.sql": "jinja-sql",
+        "*.yml": "jinja-yaml"
+    },
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "DuckDB",
+            "database": "${workspaceFolder:2-hcup-dbt}/hcup-dev.duckdb",
+            "name": "hcup-dev"
+        }
+    ],
+    "sqltools.useNodeRuntime": true,
+    "dbt.enableNewLineagePanel": true,
+    "dbt.perspectiveTheme": "Vintage",
+    "editor.acceptSuggestionOnEnter": true,
+    "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+    },
+    "editor.quickSuggestionsDelay": 300
+}

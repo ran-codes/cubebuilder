@@ -1,0 +1,16 @@
+salurbal:
+  outputs:  
+    dev:
+      type: duckdb
+      path: '../_shared_storage/5_datawarehouse/models/dev.duckdb' 
+      external_root: '../_shared_storage/5_datawarehouse/models/dev'
+      schema: external
+      settings:
+        threads: '1'
+        memory_limit: '4GB'
+        temp_directory: '.\.tmp\'
+      extensions:
+        - parquet
+        - name: prql
+          repo: community
+  target:  dev

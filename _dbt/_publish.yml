@@ -1,0 +1,8 @@
+- source: _inventory.qmd
+  quarto-pub:
+    - id: b053b4b9-a40c-432f-b220-cab3c1e3f20d
+      url: 'https://drexelccuh.quarto.pub/salurbal-dbt-source-inventory'
+- source: _eda.qmd
+  quarto-pub:
+    - id: 9c5b6b59-b242-4e59-8a38-7c5605c2f6b6
+      url: 'https://salurbal-climate.quarto.pub/salurbal-api-access'

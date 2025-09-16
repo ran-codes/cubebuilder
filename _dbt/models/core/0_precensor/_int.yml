@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: int__precensored_admin_cube
+    config:
+      tags: ['admin_cube', 'precensor']
+    tests:
+      - test_unique_data_composite_keys_sample_1
+      - test_unique_data_composite_keys_sample_2
+      - test_unique_data_composite_keys_sample_3
+      - test_unique_data_composite_keys_sample_4
+    columns:
+      - name: public
+        tests:
+          - not_null
+  - name: int__precensored_metadata_cube
+    config:
+      tags: ['admin_metadata','precensor']
+    tests:
+      - test_unique_metadata_composite_keys
+    columns:
+      - name: public
+        tests:
+          - not_null
+      - name: var_def
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_not_be_in_set:
+              value_set: ['']
+  - name: int__precensored_data_cube
+    config:
+      tags: ['admin_data', 'precensor']
+    tests:
+      - test_unique_data_composite_keys_sample_1
+      - test_unique_data_composite_keys_sample_2
+      - test_unique_data_composite_keys_sample_3
+      - test_unique_data_composite_keys_sample_4
