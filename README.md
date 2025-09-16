@@ -42,22 +42,19 @@ Note that for this training most of storage is on GitHub/local but this workflow
 
 ```
 cubebuilder-dev/
-├── `_training/`                        # Self-contained learning modules
+├── `_training/`                       # Self-contained learning modules
 │   ├── 1_area_level_simple/           # → Basic area-level data cube creation
 │   ├── 2_record_level_simple/         # → Individual-level data processing  
-├── `_shared_storage/`                    # Shared data storage layer
+├── `_shared_storage/`                 # Shared data storage layer
 │   ├── 1_unstandardized/              # → Raw dummy datasets for training 
 │   ├── 2_freeze/                      # → Immutable data snapshots  
 │   ├── 3_cache_temp/                  # → Interemdiate cache folders
 │   ├── 4_standardized/                # → Standardized data and metadata cubes
 │   └── 5_datawarehouse/               # → Datawrehouse that orchestrates across cubes
-├── R/                                  # Core framework functions
+├── `_dbt/`                            # Datawarehouse for combining the cubes and orchestrating downstream models
+├── R/                                 # Core framework functions
 │   ├── setup/                         # → Global configuration and setup
 │   ├── renovation_functions/          # → Data processing pipeline
 │   ├── validation/                    # → Quality control and testing
 │   └── metadata/                      # → Metadata management utilities
 └── README.md                          #  This file
-```
-
-
-
