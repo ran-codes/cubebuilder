@@ -171,22 +171,22 @@ get_global_context = function(root = here()){
       
     }
     
-    # { # Crosswalks --------------------------------------------------------------
-    #   crosswalks = lst(
-    #     path_xwalk_iso2 = file.path(paths$path_server_etl_seeds_crosswalks, 'xwalk_iso2.parquet'),
-    #     xwalk_iso2 = read_parquet(path_xwalk_iso2),
-    #     path_xwalk_l1ad = file.path(paths$path_server_etl_seeds_crosswalks, 'xwalk_l1ad.parquet'),
-    #     xwalk_l1ad = read_parquet(path_xwalk_l1ad),
-    #     path_xwalk_l2 = file.path(paths$path_server_etl_seeds_crosswalks, 'xwalk_l2.parquet'),
-    #     xwalk_l2 = read_parquet(path_xwalk_l2),
-    #     path_xwalk_area_level_observation_id_label = file.path(paths$path_server_etl_seeds_crosswalks, 
-    #                                                            'xwalk_area_level_observation_id_label.parquet'),
-    #     xwalk_area_level_observation_id_labels = read_parquet(path_xwalk_area_level_observation_id_label),
-    #     xwalk_keys = generate_relative_path(root,"_shared_storage/0_schema/templates/4-codebook_keys.csv") %>% 
-    #       read_csv(show_col_types = FALSE) %>% 
-    #       unpack_string_column(.,"keys")
-    #   )  
-    # }
+    { # Crosswalks --------------------------------------------------------------
+      crosswalks = lst(
+        # path_xwalk_iso2 = file.path(paths$path_server_etl_seeds_crosswalks, 'xwalk_iso2.parquet'),
+        # xwalk_iso2 = read_parquet(path_xwalk_iso2),
+        # path_xwalk_l1ad = file.path(paths$path_server_etl_seeds_crosswalks, 'xwalk_l1ad.parquet'),
+        # xwalk_l1ad = read_parquet(path_xwalk_l1ad),
+        # path_xwalk_l2 = file.path(paths$path_server_etl_seeds_crosswalks, 'xwalk_l2.parquet'),
+        # xwalk_l2 = read_parquet(path_xwalk_l2),
+        # path_xwalk_area_level_observation_id_label = file.path(paths$path_server_etl_seeds_crosswalks,
+        #                                                        'xwalk_area_level_observation_id_label.parquet'),
+        # xwalk_area_level_observation_id_labels = read_parquet(path_xwalk_area_level_observation_id_label),
+        xwalk_keys = generate_relative_path(root,"_shared_storage/0_schema/templates/4-codebook_keys.csv") %>%
+          read_csv(show_col_types = FALSE) %>%
+          unpack_string_column(.,"keys")
+      )
+    }
     
     
     { # Templates ---------------------------------------------------------------
@@ -245,7 +245,7 @@ get_global_context = function(root = here()){
     global_context = c(
       notebooks,
       paths,
-      # crosswalks,
+      crosswalks,
       templates,
       seeds,
       admin_layer_context,
