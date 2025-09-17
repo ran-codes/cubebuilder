@@ -95,8 +95,10 @@ df_salurbal_source_input = local_context$df_production_inventory  %>%
          path_dbt_source_data, 
          path_dbt_source_metadata) %>%  
   pivot_longer(cols = -dataset_instance,
-              values_to = 'path') %>% 
-  mutate(type = str_remove_all(name, "path_dbt_source_"),
+              values_to = 'path_absolute') %>% 
+  mutate(
+    path = file.path("..", str_extract(path_absolute, "_shared_storage.*")),
+    type = str_remove_all(name, "path_dbt_source_"),
          source_model_id = glue('{dataset_instance}__{type}') %>% str_to_lower(),
          base_model_id = glue("base__{dataset_instance}__{type}") %>% str_to_lower(),
          int_model_id = glue("int__{dataset_instance}") %>% str_to_lower(),
