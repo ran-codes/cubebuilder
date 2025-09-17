@@ -5,7 +5,7 @@ sources:
   - DBT Source metadata
   - 1_area_level_simple_v1
   meta:
-    external_location: D:/GitHub/cubebuilder/_shared_storage/4_standardized/1_area_level_simple_v1_schema-v2_metadata.parquet
+    external_location: ../_shared_storage/4_standardized/1_area_level_simple_v1_schema-v2_metadata.parquet
   tables:
   - name: 1_area_level_simple_v1__metadata
     description: This is the metadata OBT for 1_area_level_simple_v1
