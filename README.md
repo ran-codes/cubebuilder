@@ -3,6 +3,8 @@
 
 CubeBuilder-Dev is a development repository for building data harmonization and cube-building capabilities. This repository focuses on creating unified data structures that integrate both data and metadata into queryable cubes for efficient reporting and analysis.
 
+<img width="981" height="478" alt="image" src="https://github.com/user-attachments/assets/6351dd27-aaee-480f-91bb-cffce0d5fbff" />
+
 ##  Quick Start: Training Modules
 
 1. Clone this repository
